@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
+import {useForm} from "react-hook-form";
+import { createUserAsync } from "../authSlice";
+import { useDispatch } from "react-redux";
+
 
 export default function SignUp() {
+const dispatch=useDispatch();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
   return (
     <>
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -16,7 +26,9 @@ export default function SignUp() {
         </div>
 
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form action="#" method="POST" className="space-y-6">
+          <form noValidate onSubmit={handleSubmit((data)=>{
+            dispatch(createUserAsync({email:data.email,password:data.password}));
+})} className="space-y-6">
             <div>
               <label
                 htmlFor="email"
@@ -29,10 +41,15 @@ export default function SignUp() {
                   id="email"
                   name="email"
                   type="email"
-                  required
-                  autoComplete="email"
+                  {...register("email", { required: 'email is required',
+                    pattern:{
+                      value:/\b[\w\.-]+@[\w\.-]+\.\w{2,4}\b/gi,
+                      message:"email not valid"
+                    }
+                   })}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                {errors.email &&(<p className="text-red-500">{errors.email.message}</p>)}
               </div>
             </div>
 
@@ -50,16 +67,24 @@ export default function SignUp() {
                   id="password"
                   name="password"
                   type="password"
-                  required
-                  autoComplete="current-password"
+                  {...register("password", { required: 'password is required',
+                    pattern:{
+                      value:/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm,
+                      message:`at least 8 characters\n
+                      -must contain at least 1 uppercase letter,1 lowercase letter, and 1 number\n
+                      -can contain special characters`
+                    }
+                   })}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+                                {errors.password &&(<p className="text-red-500">{errors.password.message}</p>)}
+
               </div>
             </div>
             <div>
               <div className="flex items-center justify-between">
                 <label
-                  htmlFor="confirm-password"
+                  htmlFor="password"
                   className="block text-sm/6 font-medium text-gray-900"
                 >
                   Confirm Password
@@ -67,12 +92,18 @@ export default function SignUp() {
               </div>
               <div className="mt-2">
                 <input
-                  id="confirm-password"
-                  name="confirm-password"
+                  id="confirmPassword"
+                  name="confirmPassword"
                   type="password"
-                  required
+                  {...register("confirmPassword", { required: 'confirmPassword is required',
+                    validate:(value,formValues)=>
+                      value === formValues.password||'password not matching'
+                    
+                   })}
                   className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                 />
+ {errors.confirmPassword &&(<p className="text-red-500">{errors.confirmPassword.message}</p>)}
+
               </div>
             </div>
 
