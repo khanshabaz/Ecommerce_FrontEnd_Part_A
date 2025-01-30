@@ -10,11 +10,20 @@ import SignUpPage from './Pages/SignUpPage';
 import CartPage from './Pages/CartPage';
 import Checkout from './Pages/Checkout';
 import ProductDetailPage from './Pages/ProductDetailPage';
+import Protected from './features/auth/components/Protected';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectedLoggedInUser } from './features/auth/authSlice';
+import { useEffect } from 'react';
+import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home/>,
+    element: (
+      <Protected>
+        <Home/>
+      </Protected>
+    )
   },
   {
     path: "/login",
@@ -26,21 +35,41 @@ const router = createBrowserRouter([
   },
   {
     path: "/cart",
-    element: <CartPage/>,
+    element: (
+      <Protected>
+        <CartPage/>
+      </Protected>
+    ),
   },
   {
     path: "/checkout",
-    element: <Checkout/>,
+    element:  (
+      <Protected>
+        <Checkout/>
+      </Protected>
+    ),
   },
   {
     path: "/product-detail/:id",
-    element: <ProductDetailPage/>,
+    element:  (
+      <Protected>
+        <ProductDetailPage/>
+      </Protected>
+    )
   },
 ]);
 
 
 function App() {
+const dispatch=useDispatch();
 
+const user=useSelector(selectedLoggedInUser)
+
+useEffect(()=>{
+  if(user){
+    dispatch(fetchItemsByUserIdAsync(user.id))
+  }
+},[dispatch,user])
 
   return (
     <>
