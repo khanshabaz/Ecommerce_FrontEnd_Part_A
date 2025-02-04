@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { checkUser, createUser, updateUser } from './authAPI';
+import { checkUser, createUser } from './authAPI';
 
 const initialState = {
   value: 0,
@@ -9,7 +9,7 @@ const initialState = {
 };
 
 export const  createUserAsync= createAsyncThunk(
-  'auth/createUser',
+  'user/createUser',
   async (userData) => {
     const response = await createUser(userData);
     return response.data;
@@ -17,23 +17,16 @@ export const  createUserAsync= createAsyncThunk(
 );
 
 export const  checkUserAsync= createAsyncThunk(
-  'auth/checkUser',
+  'user/checkUser',
   async (loginInfo) => {
     const response = await checkUser(loginInfo);
     return response.data;
   }
 );
 
-export const  updateUserAsync= createAsyncThunk(
-  'auth/updateUser',
-  async (update) => {
-    const response = await updateUser(update);
-    return response.data;
-  }
-);
 
 export const authSlice = createSlice({
-  name: 'auth',
+  name: 'user',
   initialState,
   reducers: {
     increment: (state) => {
@@ -63,13 +56,7 @@ export const authSlice = createSlice({
         state.status = 'idle';
         state.error = action.error;
       })
-      .addCase(updateUserAsync.pending, (state) => {
-        state.status = 'loading';
-      })
-      .addCase(updateUserAsync.fulfilled, (state, action) => {
-        state.status = 'idle';
-        state.loggedInUser = action.payload;
-      })
+     
       
   },
 });

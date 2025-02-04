@@ -6271,7 +6271,26 @@
       "id": "b8ac",
       "email": "jishnu@gmail.com",
       "password": "Test@1234",
-      "addresses": []
+      "addresses": [
+        {
+          "name": "Jishnu",
+          "email": "jishnu@gmail.com",
+          "phone": "9686495382",
+          "street": "5th Main Road HSR",
+          "city": "Chennai",
+          "state": "Tamil Naidu",
+          "pinCode": "560076"
+        },
+        {
+          "name": "vedasri",
+          "email": "jishnu@gmail.com",
+          "phone": "8787886666",
+          "street": "5th Main Road HSR",
+          "city": "Bangalore",
+          "state": "Karnataka",
+          "pinCode": "560078"
+        }
+      ]
     },
     {
       "id": "d9c9",
@@ -6285,137 +6304,172 @@
           "street": "6th Main Road HSR",
           "city": "Chennai",
           "state": "Tamil Naidu",
-          "postal-code": "5608575"
+          "pinCode": "5608575"
         }
       ]
     }
   ],
-  "cart": [
+  "cart": [],
+  "orders": [
     {
-      "id": "307d",
-      "title": "Essence Mascara Lash Princess",
-      "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
-      "category": "beauty",
-      "price": 9.99,
-      "discountPercentage": 7.17,
-      "rating": 4.94,
-      "stock": 5,
-      "tags": [
-        "beauty",
-        "mascara"
-      ],
-      "brand": "Essence",
-      "sku": "RCH45Q1A",
-      "weight": 2,
-      "dimensions": {
-        "width": 23.17,
-        "height": 14.43,
-        "depth": 28.01
-      },
-      "warrantyInformation": "1 month warranty",
-      "shippingInformation": "Ships in 1 month",
-      "availabilityStatus": "Low Stock",
-      "reviews": [
+      "id": "0360",
+      "items": [
         {
-          "rating": 2,
-          "comment": "Very unhappy with my purchase!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "John Doe",
-          "reviewerEmail": "john.doe@x.dummyjson.com"
+          "id": "eff7",
+          "title": "Red Nail Polish",
+          "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+          "category": "beauty",
+          "price": 8.99,
+          "discountPercentage": 2.46,
+          "rating": 3.91,
+          "stock": 71,
+          "tags": [
+            "beauty",
+            "nail polish"
+          ],
+          "brand": "Nail Couture",
+          "sku": "YUIIIP4W",
+          "weight": 9,
+          "dimensions": {
+            "width": 8.11,
+            "height": 10.89,
+            "depth": 29.06
+          },
+          "warrantyInformation": "1 year warranty",
+          "shippingInformation": "Ships in 1 week",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Very pleased!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Leo Rivera",
+              "reviewerEmail": "leo.rivera@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Great product!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Evan Reed",
+              "reviewerEmail": "evan.reed@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Highly recommended!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Evelyn Sanchez",
+              "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 46,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.619Z",
+            "updatedAt": "2024-05-23T08:56:21.619Z",
+            "barcode": "3212847902461",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
+          "quantity": 3,
+          "user": "b8ac"
         },
         {
-          "rating": 2,
-          "comment": "Not as described!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "Nolan Gonzalez",
-          "reviewerEmail": "nolan.gonzalez@x.dummyjson.com"
-        },
-        {
-          "rating": 5,
-          "comment": "Very satisfied!",
-          "date": "2024-05-23T08:56:21.618Z",
-          "reviewerName": "Scarlett Wright",
-          "reviewerEmail": "scarlett.wright@x.dummyjson.com"
+          "id": "0395",
+          "title": "Dolce Shine Eau de",
+          "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
+          "category": "fragrances",
+          "price": 69.99,
+          "discountPercentage": 11.47,
+          "rating": 2.68,
+          "stock": 3,
+          "tags": [
+            "fragrances",
+            "perfumes"
+          ],
+          "brand": "Dolce & Gabbana",
+          "sku": "1NBFK980",
+          "weight": 5,
+          "dimensions": {
+            "width": 17,
+            "height": 24.57,
+            "depth": 13.3
+          },
+          "warrantyInformation": "5 year warranty",
+          "shippingInformation": "Ships in 1-2 business days",
+          "availabilityStatus": "Low Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Very satisfied!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Xavier Wright",
+              "reviewerEmail": "xavier.wright@x.dummyjson.com"
+            },
+            {
+              "rating": 1,
+              "comment": "Poor quality!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Mila Hernandez",
+              "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Sophia Brown",
+              "reviewerEmail": "sophia.brown@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "30 days return policy",
+          "minimumOrderQuantity": 9,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.619Z",
+            "updatedAt": "2024-05-23T08:56:21.619Z",
+            "barcode": "1939383392674",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png",
+          "quantity": 3,
+          "user": "b8ac"
         }
       ],
-      "returnPolicy": "30 days return policy",
-      "minimumOrderQuantity": 24,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.618Z",
-        "updatedAt": "2024-05-23T08:56:21.618Z",
-        "barcode": "9164035109868",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+      "totalAmount": 237,
+      "totalItems": 6,
+      "user": {
+        "id": "b8ac",
+        "email": "jishnu@gmail.com",
+        "password": "Test@1234",
+        "addresses": [
+          {
+            "name": "Jishnu",
+            "email": "jishnu@gmail.com",
+            "phone": "9686495382",
+            "street": "5th Main Road HSR",
+            "city": "Chennai",
+            "state": "Tamil Naidu",
+            "pinCode": "560076"
+          }
+        ]
       },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
-      "quantity": 2,
-      "user": "d9c9"
-    },
-    {
-      "id": "1424",
-      "title": "Dior J'adore",
-      "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
-      "category": "fragrances",
-      "price": 89.99,
-      "discountPercentage": 17.44,
-      "rating": 3.31,
-      "stock": 91,
-      "tags": [
-        "fragrances",
-        "perfumes"
-      ],
-      "brand": "Dior",
-      "sku": "E70NB03B",
-      "weight": 10,
-      "dimensions": {
-        "width": 21.51,
-        "height": 7,
-        "depth": 26.51
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Jishnu",
+        "email": "jishnu@gmail.com",
+        "phone": "9686495382",
+        "street": "5th Main Road HSR",
+        "city": "Chennai",
+        "state": "Tamil Naidu",
+        "pinCode": "560076"
       },
-      "warrantyInformation": "Lifetime warranty",
-      "shippingInformation": "Ships in 2 weeks",
-      "availabilityStatus": "In Stock",
-      "reviews": [
-        {
-          "rating": 5,
-          "comment": "Fast shipping!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Zoe Nicholson",
-          "reviewerEmail": "zoe.nicholson@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Excellent quality!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Addison Wright",
-          "reviewerEmail": "addison.wright@x.dummyjson.com"
-        },
-        {
-          "rating": 4,
-          "comment": "Would buy again!",
-          "date": "2024-05-23T08:56:21.619Z",
-          "reviewerName": "Clara Berry",
-          "reviewerEmail": "clara.berry@x.dummyjson.com"
-        }
-      ],
-      "returnPolicy": "7 days return policy",
-      "minimumOrderQuantity": 8,
-      "meta": {
-        "createdAt": "2024-05-23T08:56:21.619Z",
-        "updatedAt": "2024-05-23T08:56:21.619Z",
-        "barcode": "0887083199279",
-        "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-      },
-      "images": [
-        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/2.png",
-        "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png"
-      ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
-      "quantity": 1,
-      "user": "d9c9"
+      "status": "pending"
     }
   ]
 }

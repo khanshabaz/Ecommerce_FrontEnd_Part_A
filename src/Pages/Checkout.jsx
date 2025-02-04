@@ -1,6 +1,5 @@
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { ChevronDownIcon } from "@heroicons/react/16/solid";
-import { Link } from "react-router-dom";
+
+import { Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import {
@@ -8,15 +7,21 @@ import {
   selectItems,
   updateCartAsync,
 } from "../features/cart/cartSlice";
+
+import { useState } from "react";
 import {
-  selectedLoggedInUser,
-  updateUserAsync,
-} from "../features/auth/authSlice";
+  createOrderAsync,
+  selectCurrentOrder,
+} from "../features/order/orderSlice";
+import { selectUserInfo, updateUserAsync } from "../features/user/userSlice";
 
 export default function Checkout() {
   const dispatch = useDispatch();
   const items = useSelector(selectItems);
-  const user = useSelector(selectedLoggedInUser);
+  const userInfo= useSelector(selectUserInfo);
+  const [selectedAddress, setSelectedAddress] = useState(null);
+  const [paymentMethod, setPaymentMethod] = useState("cash");
+  const currentOrder = useSelector(selectCurrentOrder);
   const {
     register,
     handleSubmit,
@@ -35,9 +40,38 @@ export default function Checkout() {
   const handleRemove = (e, id) => {
     dispatch(deleteItemFromCartAsync(id));
   };
+
+  const handleAddress = (e) => {
+    setSelectedAddress(userInfo.addresses[e.target.value]);
+  };
+
+  const handlePayment = (e) => {
+    setPaymentMethod(e.target.value);
+  };
+
+  const handleOder = (e) => {
+    if (selectedAddress && paymentMethod) {
+      const order = {
+        items,
+        totalAmount,
+        totalItems,
+        user: userInfo,
+        paymentMethod,
+        selectedAddress,
+        status: "pending",
+      };
+      dispatch(createOrderAsync(order));
+    }
+  };
   return (
     <>
       {!items.length && <Navigate to="/" replace={true}></Navigate>}
+      {currentOrder && (
+        <Navigate
+          to={`/order-success/${currentOrder.id}`}
+          replace={true}
+        ></Navigate>
+      )}
       <div className="mx-auto mt-12 max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -46,8 +80,8 @@ export default function Checkout() {
               onSubmit={handleSubmit((data) => {
                 dispatch(
                   updateUserAsync({
-                    ...user,
-                    addresses: [...user.addresses, data],
+                    ...userInfo,
+                    addresses: [...userInfo.addresses, data],
                   })
                 );
               })}
@@ -182,18 +216,18 @@ export default function Checkout() {
 
                     <div className="sm:col-span-2">
                       <label
-                        htmlFor="postal-code"
+                        htmlFor="pinCode"
                         className="block text-sm/6 font-medium text-gray-900"
                       >
                         ZIP / Postal code
                       </label>
                       <div className="mt-2">
                         <input
-                          id="postal-code"
-                          name="postal-code"
+                          id="pinCode"
+                          name="pinCode"
                           type="text"
-                          {...register("postal-code", {
-                            required: "postal-code is required",
+                          {...register("pinCode", {
+                            required: "pinCode is required",
                           })}
                           className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
                         />
@@ -218,15 +252,50 @@ export default function Checkout() {
                 </div>
 
                 <div className="border-b border-gray-900/10 pb-12">
-                  <h2 className="text-base/7 font-semibold text-gray-900">
+                  <h2 className="text-base font-semibold leading-7 text-gray-900">
                     Adresses:
                   </h2>
-                  <p className="mt-1 text-sm/6 text-gray-600">
+                  <p className="mt-1 text-sm leading-6 text-gray-600">
                     Choose From Existing addresses
                   </p>
-                  
-                  </div>
-
+                  <ul role="list">
+                    {userInfo.addresses.map((address, index) => (
+                      <li
+                        key={index}
+                        className="flex justify-between gap-x-6 px-5 py-5 border-solid border-2 border-gray-200"
+                      >
+                        <div className="flex  gap-x-4">
+                          <input
+                            name="address"
+                            type="radio"
+                            value={index}
+                            onChange={handleAddress}
+                            className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
+                          />
+                          <div className="min-w-0 flex-auto">
+                            <p className="text-sm/6 font-semibold text-gray-900">
+                              {address.name}
+                            </p>
+                            <p className="mt-1 truncate text-xs/5 text-gray-500">
+                              {address.street}
+                            </p>
+                            <p className="text-sm/6 text-gray-900">
+                              {address.pinCode}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                          <p className="text-sm/6 text-gray-900">
+                            Phone: {address.phone}
+                          </p>
+                          <p className="text-sm/6 text-gray-900">
+                            {address.city}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
 
                 <div className="border-b border-gray-900/10 pb-12">
                   <div className="mt-10 space-y-10">
@@ -241,6 +310,9 @@ export default function Checkout() {
                             id="cash"
                             name="payments"
                             type="radio"
+                            onChange={handlePayment}
+                            checked={paymentMethod === "cash"}
+                            value="cash"
                             className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
                           />
                           <label
@@ -255,6 +327,9 @@ export default function Checkout() {
                             id="card"
                             name="payments"
                             type="radio"
+                            onChange={handlePayment}
+                            checked={paymentMethod === "card"}
+                            value="card"
                             className="relative size-4 appearance-none rounded-full border border-gray-300 bg-white before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-indigo-600 checked:bg-indigo-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:before:bg-gray-400 forced-colors:appearance-auto forced-colors:before:hidden [&:not(:checked)]:before:hidden"
                           />
                           <label
@@ -351,12 +426,12 @@ export default function Checkout() {
                     Shipping and taxes calculated at checkout.
                   </p>
                   <div className="mt-6">
-                    <Link
-                      to="/checkout"
-                      className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
+                    <div
+                      onClick={handleOder}
+                      className="flex items-center cursor-pointer justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
                     >
                       Order Now
-                    </Link>
+                    </div>
                   </div>
                   <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
                     <p>
