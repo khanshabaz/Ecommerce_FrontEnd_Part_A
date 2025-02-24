@@ -33,5 +33,10 @@ export function createUser(userData) {
     );
   }
 
-
+  export function signOut() {
+    return new Promise(async (resolve) =>{
+      resolve({data:"success"});
+    }
+    );
+  }
   

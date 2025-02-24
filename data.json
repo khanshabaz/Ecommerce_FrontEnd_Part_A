@@ -5,8 +5,8 @@
       "title": "Essence Mascara Lash Princess",
       "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
       "category": "beauty",
-      "price": 9.99,
-      "discountPercentage": 7.17,
+      "price": 20,
+      "discountPercentage": 10,
       "rating": 4.94,
       "stock": 5,
       "tags": [
@@ -58,15 +58,16 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/1.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "2",
       "title": "Eyeshadow Palette with Mirror",
       "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
       "category": "beauty",
-      "price": 19.99,
-      "discountPercentage": 5.5,
+      "price": 19,
+      "discountPercentage": 5,
       "rating": 3.28,
       "stock": 44,
       "tags": [
@@ -118,15 +119,16 @@
       "images": [
         "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
       ],
-      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png"
+      "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+      "deleted": true
     },
     {
       "id": "3",
-      "title": "Powder Canister",
+      "title": "Powder Canister New",
       "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
       "category": "beauty",
-      "price": 14.99,
-      "discountPercentage": 18.14,
+      "price": 50,
+      "discountPercentage": 16,
       "rating": 3.82,
       "stock": 59,
       "tags": [
@@ -6008,6 +6010,36 @@
         "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/3.png"
       ],
       "thumbnail": "https://cdn.dummyjson.com/products/images/mobile-accessories/Apple%20Airpods/thumbnail.png"
+    },
+    {
+      "id": "4efe",
+      "title": "Apple 16 pro Max",
+      "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes",
+      "brand": "Apple",
+      "category": "mobile-accessories",
+      "price": 999,
+      "discountPercentage": 20,
+      "stock": 40,
+      "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
+      ],
+      "rating": 0
+    },
+    {
+      "id": "d792",
+      "title": "Apple",
+      "description": "Fresh and crisp apples, perfect for snacking or incorporating into various recipes",
+      "brand": "Apple",
+      "category": "mobile-accessories",
+      "price": 999,
+      "discountPercentage": 20,
+      "stock": 45,
+      "thumbnail": "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png",
+      "images": [
+        "https://cdn.dummyjson.com/products/images/groceries/Apple/thumbnail.png"
+      ],
+      "rating": 0
     }
   ],
   "categories": [
@@ -6273,24 +6305,25 @@
       "password": "Test@1234",
       "addresses": [
         {
-          "name": "Jishnu",
+          "name": "Test User",
           "email": "jishnu@gmail.com",
-          "phone": "9686495382",
-          "street": "5th Main Road HSR",
+          "phone": "985657576",
+          "street": "5th HSR Road",
           "city": "Chennai",
           "state": "Tamil Naidu",
-          "pinCode": "560076"
+          "pinCode": "560090"
         },
         {
-          "name": "vedasri",
+          "name": "Jishnu",
           "email": "jishnu@gmail.com",
-          "phone": "8787886666",
-          "street": "5th Main Road HSR",
+          "phone": "896889696",
+          "street": "6th HSR Main",
           "city": "Bangalore",
           "state": "Karnataka",
-          "pinCode": "560078"
+          "pinCode": "560099"
         }
-      ]
+      ],
+      "role": "user"
     },
     {
       "id": "d9c9",
@@ -6306,170 +6339,390 @@
           "state": "Tamil Naidu",
           "pinCode": "5608575"
         }
-      ]
+      ],
+      "role": "user"
+    },
+    {
+      "id": "b937",
+      "email": "admin@gmail.com",
+      "password": "Test@1234",
+      "addresses": [],
+      "role": "admin"
     }
   ],
   "cart": [],
   "orders": [
     {
-      "id": "0360",
+      "id": "02c7",
       "items": [
         {
-          "id": "eff7",
-          "title": "Red Nail Polish",
-          "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+          "id": "c1f0",
+          "title": "Eyeshadow Palette with Mirror",
+          "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
           "category": "beauty",
-          "price": 8.99,
-          "discountPercentage": 2.46,
-          "rating": 3.91,
-          "stock": 71,
+          "price": 19.99,
+          "discountPercentage": 5.5,
+          "rating": 3.28,
+          "stock": 44,
           "tags": [
             "beauty",
-            "nail polish"
+            "eyeshadow"
           ],
-          "brand": "Nail Couture",
-          "sku": "YUIIIP4W",
-          "weight": 9,
+          "brand": "Glamour Beauty",
+          "sku": "MVCFH27F",
+          "weight": 3,
           "dimensions": {
-            "width": 8.11,
-            "height": 10.89,
-            "depth": 29.06
+            "width": 12.42,
+            "height": 8.63,
+            "depth": 29.13
           },
           "warrantyInformation": "1 year warranty",
-          "shippingInformation": "Ships in 1 week",
+          "shippingInformation": "Ships in 2 weeks",
           "availabilityStatus": "In Stock",
-          "reviews": [
-            {
-              "rating": 5,
-              "comment": "Very pleased!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Leo Rivera",
-              "reviewerEmail": "leo.rivera@x.dummyjson.com"
-            },
-            {
-              "rating": 5,
-              "comment": "Great product!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Evan Reed",
-              "reviewerEmail": "evan.reed@x.dummyjson.com"
-            },
-            {
-              "rating": 4,
-              "comment": "Highly recommended!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Evelyn Sanchez",
-              "reviewerEmail": "evelyn.sanchez@x.dummyjson.com"
-            }
-          ],
-          "returnPolicy": "No return policy",
-          "minimumOrderQuantity": 46,
-          "meta": {
-            "createdAt": "2024-05-23T08:56:21.619Z",
-            "updatedAt": "2024-05-23T08:56:21.619Z",
-            "barcode": "3212847902461",
-            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
-          },
-          "images": [
-            "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/1.png"
-          ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Red%20Nail%20Polish/thumbnail.png",
-          "quantity": 3,
-          "user": "b8ac"
-        },
-        {
-          "id": "0395",
-          "title": "Dolce Shine Eau de",
-          "description": "Dolce Shine by Dolce & Gabbana is a vibrant and fruity fragrance, featuring notes of mango, jasmine, and blonde woods. It's a joyful and youthful scent.",
-          "category": "fragrances",
-          "price": 69.99,
-          "discountPercentage": 11.47,
-          "rating": 2.68,
-          "stock": 3,
-          "tags": [
-            "fragrances",
-            "perfumes"
-          ],
-          "brand": "Dolce & Gabbana",
-          "sku": "1NBFK980",
-          "weight": 5,
-          "dimensions": {
-            "width": 17,
-            "height": 24.57,
-            "depth": 13.3
-          },
-          "warrantyInformation": "5 year warranty",
-          "shippingInformation": "Ships in 1-2 business days",
-          "availabilityStatus": "Low Stock",
           "reviews": [
             {
               "rating": 4,
               "comment": "Very satisfied!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Xavier Wright",
-              "reviewerEmail": "xavier.wright@x.dummyjson.com"
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Liam Garcia",
+              "reviewerEmail": "liam.garcia@x.dummyjson.com"
             },
             {
               "rating": 1,
-              "comment": "Poor quality!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Mila Hernandez",
-              "reviewerEmail": "mila.hernandez@x.dummyjson.com"
+              "comment": "Very disappointed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Nora Russell",
+              "reviewerEmail": "nora.russell@x.dummyjson.com"
             },
             {
               "rating": 5,
-              "comment": "Very happy with my purchase!",
-              "date": "2024-05-23T08:56:21.619Z",
-              "reviewerName": "Sophia Brown",
-              "reviewerEmail": "sophia.brown@x.dummyjson.com"
+              "comment": "Highly impressed!",
+              "date": "2024-05-23T08:56:21.618Z",
+              "reviewerName": "Elena Baker",
+              "reviewerEmail": "elena.baker@x.dummyjson.com"
             }
           ],
           "returnPolicy": "30 days return policy",
-          "minimumOrderQuantity": 9,
+          "minimumOrderQuantity": 32,
           "meta": {
-            "createdAt": "2024-05-23T08:56:21.619Z",
-            "updatedAt": "2024-05-23T08:56:21.619Z",
-            "barcode": "1939383392674",
+            "createdAt": "2024-05-23T08:56:21.618Z",
+            "updatedAt": "2024-05-23T08:56:21.618Z",
+            "barcode": "2817839095220",
             "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
           },
           "images": [
-            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/1.png",
-            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/2.png",
-            "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/3.png"
+            "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/1.png"
           ],
-          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dolce%20Shine%20Eau%20de/thumbnail.png",
-          "quantity": 3,
+          "thumbnail": "https://cdn.dummyjson.com/products/images/beauty/Eyeshadow%20Palette%20with%20Mirror/thumbnail.png",
+          "quantity": 1,
           "user": "b8ac"
         }
       ],
-      "totalAmount": 237,
-      "totalItems": 6,
+      "totalAmount": 20,
+      "totalItems": 1,
       "user": {
         "id": "b8ac",
         "email": "jishnu@gmail.com",
         "password": "Test@1234",
         "addresses": [
           {
-            "name": "Jishnu",
+            "name": "Test User",
             "email": "jishnu@gmail.com",
-            "phone": "9686495382",
-            "street": "5th Main Road HSR",
+            "phone": "985657576",
+            "street": "5th HSR Road",
             "city": "Chennai",
             "state": "Tamil Naidu",
-            "pinCode": "560076"
+            "pinCode": "560090"
           }
         ]
       },
       "paymentMethod": "cash",
       "selectedAddress": {
-        "name": "Jishnu",
+        "name": "Test User",
         "email": "jishnu@gmail.com",
-        "phone": "9686495382",
-        "street": "5th Main Road HSR",
+        "phone": "985657576",
+        "street": "5th HSR Road",
         "city": "Chennai",
         "state": "Tamil Naidu",
-        "pinCode": "560076"
+        "pinCode": "560090"
       },
-      "status": "pending"
+      "status": "dispatched"
+    },
+    {
+      "id": "9da7",
+      "items": [
+        {
+          "id": "bfdf",
+          "title": "Gucci Bloom Eau de",
+          "description": "Gucci Bloom by Gucci is a floral and captivating fragrance, with notes of tuberose, jasmine, and Rangoon creeper. It's a modern and romantic scent.",
+          "category": "fragrances",
+          "price": 79.99,
+          "discountPercentage": 8.9,
+          "rating": 2.69,
+          "stock": 93,
+          "tags": [
+            "fragrances",
+            "perfumes"
+          ],
+          "brand": "Gucci",
+          "sku": "FFKZ6HOF",
+          "weight": 10,
+          "dimensions": {
+            "width": 22.28,
+            "height": 17.81,
+            "depth": 27.18
+          },
+          "warrantyInformation": "No warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Great value for money!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Aria Parker",
+              "reviewerEmail": "aria.parker@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Excellent quality!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Natalie Harris",
+              "reviewerEmail": "natalie.harris@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Fast shipping!",
+              "date": "2024-05-23T08:56:21.620Z",
+              "reviewerName": "Ava Harris",
+              "reviewerEmail": "ava.harris@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 10,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.620Z",
+            "updatedAt": "2024-05-23T08:56:21.620Z",
+            "barcode": "8232190382069",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/1.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/2.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Gucci%20Bloom%20Eau%20de/thumbnail.png",
+          "quantity": 3,
+          "user": "b8ac"
+        },
+        {
+          "id": "6047",
+          "title": "Dior J'adore",
+          "description": "J'adore by Dior is a luxurious and floral fragrance, known for its blend of ylang-ylang, rose, and jasmine. It embodies femininity and sophistication.",
+          "category": "fragrances",
+          "price": 89.99,
+          "discountPercentage": 17.44,
+          "rating": 3.31,
+          "stock": 91,
+          "tags": [
+            "fragrances",
+            "perfumes"
+          ],
+          "brand": "Dior",
+          "sku": "E70NB03B",
+          "weight": 10,
+          "dimensions": {
+            "width": 21.51,
+            "height": 7,
+            "depth": 26.51
+          },
+          "warrantyInformation": "Lifetime warranty",
+          "shippingInformation": "Ships in 2 weeks",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 5,
+              "comment": "Fast shipping!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Zoe Nicholson",
+              "reviewerEmail": "zoe.nicholson@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Excellent quality!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Addison Wright",
+              "reviewerEmail": "addison.wright@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Would buy again!",
+              "date": "2024-05-23T08:56:21.619Z",
+              "reviewerName": "Clara Berry",
+              "reviewerEmail": "clara.berry@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "7 days return policy",
+          "minimumOrderQuantity": 8,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.619Z",
+            "updatedAt": "2024-05-23T08:56:21.619Z",
+            "barcode": "0887083199279",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/1.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/2.png",
+            "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/3.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/fragrances/Dior%20J'adore/thumbnail.png",
+          "quantity": 2,
+          "user": "b8ac"
+        }
+      ],
+      "totalAmount": 420,
+      "totalItems": 5,
+      "user": {
+        "id": "b8ac",
+        "email": "jishnu@gmail.com",
+        "password": "Test@1234",
+        "addresses": [
+          {
+            "name": "Test User",
+            "email": "jishnu@gmail.com",
+            "phone": "985657576",
+            "street": "5th HSR Road",
+            "city": "Chennai",
+            "state": "Tamil Naidu",
+            "pinCode": "560090"
+          },
+          {
+            "name": "Jishnu",
+            "email": "jishnu@gmail.com",
+            "phone": "896889696",
+            "street": "6th HSR Main",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "pinCode": "560099"
+          }
+        ]
+      },
+      "paymentMethod": "card",
+      "selectedAddress": {
+        "name": "Jishnu",
+        "email": "jishnu@gmail.com",
+        "phone": "896889696",
+        "street": "6th HSR Main",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "pinCode": "560099"
+      },
+      "status": "delivered"
+    },
+    {
+      "id": "160c",
+      "items": [
+        {
+          "id": "14f8",
+          "title": "Pan",
+          "description": "The Pan is a versatile and essential cookware item for frying, sautéing, and cooking various dishes. Its non-stick coating ensures easy food release and cleanup.",
+          "category": "kitchen-accessories",
+          "price": 24.99,
+          "discountPercentage": 6.55,
+          "rating": 3.4,
+          "stock": 40,
+          "tags": [
+            "cookware",
+            "pans"
+          ],
+          "sku": "3E1WZOKX",
+          "weight": 7,
+          "dimensions": {
+            "width": 19.51,
+            "height": 17.96,
+            "depth": 23.24
+          },
+          "warrantyInformation": "3 months warranty",
+          "shippingInformation": "Ships overnight",
+          "availabilityStatus": "In Stock",
+          "reviews": [
+            {
+              "rating": 4,
+              "comment": "Excellent quality!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Chloe Morales",
+              "reviewerEmail": "chloe.morales@x.dummyjson.com"
+            },
+            {
+              "rating": 4,
+              "comment": "Awesome product!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Sophia Brown",
+              "reviewerEmail": "sophia.brown@x.dummyjson.com"
+            },
+            {
+              "rating": 5,
+              "comment": "Very happy with my purchase!",
+              "date": "2024-05-23T08:56:21.622Z",
+              "reviewerName": "Max Russell",
+              "reviewerEmail": "max.russell@x.dummyjson.com"
+            }
+          ],
+          "returnPolicy": "No return policy",
+          "minimumOrderQuantity": 8,
+          "meta": {
+            "createdAt": "2024-05-23T08:56:21.622Z",
+            "updatedAt": "2024-05-23T08:56:21.622Z",
+            "barcode": "8562045288370",
+            "qrCode": "https://assets.dummyjson.com/public/qr-code.png"
+          },
+          "images": [
+            "https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/1.png"
+          ],
+          "thumbnail": "https://cdn.dummyjson.com/products/images/kitchen-accessories/Pan/thumbnail.png",
+          "quantity": 3,
+          "user": "b8ac"
+        }
+      ],
+      "totalAmount": 75,
+      "totalItems": 3,
+      "user": {
+        "id": "b8ac",
+        "email": "jishnu@gmail.com",
+        "password": "Test@1234",
+        "addresses": [
+          {
+            "name": "Test User",
+            "email": "jishnu@gmail.com",
+            "phone": "985657576",
+            "street": "5th HSR Road",
+            "city": "Chennai",
+            "state": "Tamil Naidu",
+            "pinCode": "560090"
+          },
+          {
+            "name": "Jishnu",
+            "email": "jishnu@gmail.com",
+            "phone": "896889696",
+            "street": "6th HSR Main",
+            "city": "Bangalore",
+            "state": "Karnataka",
+            "pinCode": "560099"
+          }
+        ],
+        "role": "user"
+      },
+      "paymentMethod": "cash",
+      "selectedAddress": {
+        "name": "Jishnu",
+        "email": "jishnu@gmail.com",
+        "phone": "896889696",
+        "street": "6th HSR Main",
+        "city": "Bangalore",
+        "state": "Karnataka",
+        "pinCode": "560099"
+      },
+      "status": "cancelled"
     }
   ]
 }

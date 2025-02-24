@@ -16,6 +16,7 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { selectItems } from "../cart/cartSlice";
+import { selectedLoggedInUser } from "../auth/authSlice";
 
 const user = {
   name: "Tom Cook",
@@ -24,16 +25,17 @@ const user = {
     "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
 };
 const navigation = [
-  { name: "Dashboard", href: "#", current: true },
-  { name: "Team", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Calendar", href: "#", current: false },
-  { name: "Reports", href: "#", current: false },
+  { name: "Dashboard", href: "/", user: true },
+  { name: "Team", href: "#", user: true },
+  { name: "Admin", href: "/admin", admin: true },
+  { name: "Orders", href: "/admin/orders", admin: true },
+ 
+  
 ];
 const userNavigation = [
   { name: "My Profile", href: "/profile" },
-  { name: "Settings", href: "#" },
-  { name: "Sign out", href: "/login" },
+  { name: "My Orders", href: "/my-orders" },
+  { name: "Sign out", href: "/logout" },
 ];
 
 function classNames(...classes) {
@@ -42,17 +44,11 @@ function classNames(...classes) {
 
 export default function Navbar({ children }) {
   const items=useSelector(selectItems);
-
+const user=useSelector(selectedLoggedInUser)
   return (
     <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
+     
+   
       <div>
         <Disclosure as="nav" className="bg-gray-800">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -70,9 +66,10 @@ export default function Navbar({ children }) {
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      item[user.role]?(
+                        <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         aria-current={item.current ? "page" : undefined}
                         className={classNames(
                           item.current
@@ -82,7 +79,9 @@ export default function Navbar({ children }) {
                         )}
                       >
                         {item.name}
-                      </a>
+                      </Link>
+                      ):null
+                      
                     ))}
                   </div>
                 </div>

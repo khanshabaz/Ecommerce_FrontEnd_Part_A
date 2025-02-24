@@ -36,6 +36,7 @@ export default function SignUp() {
                   email: data.email,
                   password: data.password,
                   addresses: [],
+                  role:"user"
                 })
               );
             })}
