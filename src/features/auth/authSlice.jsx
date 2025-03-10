@@ -71,6 +71,7 @@ export const authSlice = createSlice({
       .addCase(updateUserAsync.fulfilled, (state, action) => {
         state.status = "idle";
         state.loggedInUser = action.payload;
+        
       })
       .addCase(signOutAsync.pending, (state) => {
         state.status = "loading";
@@ -82,7 +83,9 @@ export const authSlice = createSlice({
   },
 });
 
+
 export const selectedLoggedInUser = (state) => state.auth.loggedInUser;
+
 export const selectedError = (state) => state.auth.error;
 
 export default authSlice.reducer;

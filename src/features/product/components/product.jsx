@@ -35,9 +35,9 @@ import { ITEMS_PER_PAGE } from "../../../app/constant";
 import Pagination from "../../common/Pagination";
 
 const sortOptions = [
-  { name: "Best Rating", sort: "-rating",order:"desc", current: false },
-  { name: "Price: Low to High", sort: "price",order:"asc", current: false },
-  { name: "Price: High to Low",sort: "-price",order:"desc", current: false },
+  { name: "Best Rating", sort: "rating", order: "desc", current: false },
+  { name: "Price: Low to High", sort: "price", order: "asc", current: false },
+  { name: "Price: High to Low", sort: "price", order: "desc", current: false },
 ];
 
 function classNames(...classes) {
@@ -49,9 +49,9 @@ export default function Product() {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState({});
   const [sort, setSort] = useState({});
-const [page,setPage]=useState(1)
+  const [page, setPage] = useState(1);
   const products = useSelector(selectedAllProducts);
-  const totalItems=useSelector(selectedTotalItems)
+  const totalItems = useSelector(selectedTotalItems);
   const categories = useSelector(selectedAllCategories);
   const brands = useSelector(selectedAllBrands);
   const filters = [
@@ -67,9 +67,7 @@ const [page,setPage]=useState(1)
     },
   ];
 
-  
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     const newFilter = { ...filter };
     if (e.target.checked) {
       if (newFilter[section.id]) {
@@ -87,19 +85,22 @@ const [page,setPage]=useState(1)
     setFilter(newFilter);
   };
 
+  const handleSort = (e, option) => {
+    const sort = { _sort: option.sort, _order: option.order };
+    setSort(sort);
+  };
 
-  const handleSort=(e,option)=>{
-const sort={_sort:option.sort,_order:option.order};
-setSort(sort)
-  }
-
-  const handlePage=(page)=>{//2
-    setPage(page)//2
-  }
   useEffect(() => {
-    const pagination= {_page:page,_per_page:ITEMS_PER_PAGE};//_page:2,_per_page:10
-    dispatch(fetchAllProductsByFilterAsync({filter,sort,pagination}));
-  }, [dispatch, filter,sort,page]);
+    setPage(1);
+  }, [totalItems, sort]);
+
+  const handlePage = (page) => {
+    setPage(page);
+  };
+  useEffect(() => {
+    const pagination = { _page: page, _per_page: ITEMS_PER_PAGE }; 
+    dispatch(fetchAllProductsByFilterAsync({ filter, sort, pagination }));
+  }, [dispatch, filter, sort, page]);
 
   useEffect(() => {
     dispatch(fetchAllCategoriesAsync());
@@ -246,7 +247,7 @@ setSort(sort)
                       <MenuItem key={option.name}>
                         <a
                           href={option.href}
-                          onClick={(e)=>handleSort(e,option)}
+                          onClick={(e) => handleSort(e, option)}
                           className={classNames(
                             option.current
                               ? "font-medium text-gray-900"
@@ -371,7 +372,12 @@ setSort(sort)
             </div>
           </section>
         </main>
-        <Pagination page={page} handlePage={handlePage} setPage={setPage} totalItems={totalItems}/>
+        <Pagination
+          page={page}
+          handlePage={handlePage}
+          setPage={setPage}
+          totalItems={totalItems}
+        />
       </div>
     </div>
   );
@@ -426,5 +432,3 @@ function ProductList({ products }) {
     </div>
   );
 }
-
-

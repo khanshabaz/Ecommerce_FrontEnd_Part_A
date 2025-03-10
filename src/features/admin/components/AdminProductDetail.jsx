@@ -46,7 +46,7 @@ export default function AdminProductDetail() {
 
 
   useEffect(() => {
-    console.log("callled")
+   
     dispatch(fetchProductByIdAsync(params.id));
   }, [dispatch, params.id]);
 
@@ -71,12 +71,12 @@ dispatch(addToCartAsync(newItem))
           />
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-8">
             <img
-              alt={product.images[0]}
+              alt={product.title}
               src={product.images[0]}
               className="aspect-[3/2] w-full rounded-lg object-cover"
             />
             <img
-              alt={product.images[0]}
+              alt={product.title}
               src={product.images[0]}
               className="aspect-[3/2] w-full rounded-lg object-cover"
             />
@@ -123,12 +123,7 @@ dispatch(addToCartAsync(newItem))
                   ))}
                 </div>
                 <p className="sr-only">{product.rating  } out of 5 stars</p>
-                <a
-                  href={product.rating}
-                  className="ml-3 text-sm font-medium text-indigo-600 hover:text-indigo-500"
-                >
-                  {product.rating} reviews
-                </a>
+               
               </div>
             </div>
 

@@ -11,7 +11,7 @@ import CartPage from './Pages/CartPage';
 import Checkout from './Pages/Checkout';
 import ProductDetailPage from './Pages/ProductDetailPage';
 import Protected from './features/auth/components/Protected';
-import { useDispatch, useSelector } from 'react-redux';
+import { Provider, useDispatch, useSelector } from 'react-redux';
 import { selectedLoggedInUser } from './features/auth/authSlice';
 import { useEffect } from 'react';
 import { fetchItemsByUserIdAsync } from './features/cart/cartSlice';
@@ -27,6 +27,7 @@ import AdminHome from './Pages/AdminHome';
 import AdminProductDetailPage from './Pages/AdminProductDetailPage';
 import AdminProductFormPage from './Pages/AdminProductFormPage';
 import AdminOrdersPage from './Pages/AdminOrdersPage';
+
 
 const router = createBrowserRouter([
   {
@@ -158,14 +159,16 @@ const user=useSelector(selectedLoggedInUser)
 useEffect(()=>{
   if(user){
     dispatch(fetchItemsByUserIdAsync(user.id))
-    dispatch(fetchLoggedInUserAsync(user.id))
-
+    dispatch(fetchLoggedInUserAsync(user.id)) 
   }
 },[dispatch,user])
 
   return (
     <>
+    
     <RouterProvider router={router}/>
+
+   
     </>
   )
 }

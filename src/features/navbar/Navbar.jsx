@@ -16,19 +16,17 @@ import { useSelector } from "react-redux";
 
 import { Link } from "react-router-dom";
 import { selectItems } from "../cart/cartSlice";
-import { selectedLoggedInUser } from "../auth/authSlice";
+import {
+  selectedLoggedInUser
+} from "../auth/authSlice";
+import { selectUserInfo } from "../user/userSlice";
 
-const user = {
-  name: "Tom Cook",
-  email: "tom@example.com",
-  imageUrl:
-    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
-};
+
 const navigation = [
-  { name: "Dashboard", href: "/", user: true },
-  { name: "Team", href: "#", user: true },
-  { name: "Admin", href: "/admin", admin: true },
-  { name: "Orders", href: "/admin/orders", admin: true },
+  { name: "Dashboard", link: "/", user: true },
+  { name: "Team", link: "#", user: true },
+  { name: "Admin", link: "/admin", admin: true },
+  { name: "Orders", link: "/admin/orders", admin: true },
  
   
 ];
@@ -44,7 +42,8 @@ function classNames(...classes) {
 
 export default function Navbar({ children }) {
   const items=useSelector(selectItems);
-const user=useSelector(selectedLoggedInUser)
+  const user = useSelector(selectedLoggedInUser);
+
   return (
     <>
      
@@ -69,7 +68,7 @@ const user=useSelector(selectedLoggedInUser)
                       item[user.role]?(
                         <Link
                         key={item.name}
-                        to={item.href}
+                        to={item.link}
                         aria-current={item.current ? "page" : undefined}
                         className={classNames(
                           item.current

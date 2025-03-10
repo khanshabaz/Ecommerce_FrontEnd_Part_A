@@ -10,14 +10,17 @@ export default function UserOrders() {
   const dispatch = useDispatch();
   const userInfo = useSelector(selectUserInfo);
   const orders = useSelector(selectUserOrders);
-console.log(orders)
+
+console.log(userInfo)
+
   useEffect(() => {
     dispatch(fetchLoggedInUserOrdersAsync(userInfo.id));
-  }, []);
+  }, [dispatch,userInfo]);
 
   return (
     <>
       {orders  && orders.map((order) => (
+        <div key={order.id}>
         <div className="mx-auto mt-12 max-w-7xl px-4 py-6 sm:px-6 lg:px-8 ">
           <div className="border-t border-gray-200 px-4 py-6 sm:px-6">
             <h1 className="text-4xl my-5 font-bold tracking-tight text-gray-900">
@@ -32,8 +35,8 @@ console.log(orders)
                   <li key={item.id} className="flex py-6">
                     <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                       <img
-                        alt={item.title}
-                        src={item.thumbnail}
+                        alt={item.product.title}
+                        src={item.product.thumbnail}
                         className="size-full object-cover"
                       />
                     </div>
@@ -42,12 +45,12 @@ console.log(orders)
                       <div>
                         <div className="flex justify-between text-base font-medium text-gray-900">
                           <h3>
-                            <a href={item.href}>{item.title}</a>
+                            <a href={item.product.href}>{item.product.title}</a>
                           </h3>
-                          <p className="ml-4">${item.price}</p>
+                          <p className="ml-4">${item.product.price}</p>
                         </div>
                         <p className="mt-1 text-sm text-gray-500">
-                          {item.brand}
+                          {item.product.brand}
                         </p>
                       </div>
                       <div className="flex flex-1 items-end justify-between text-sm">
@@ -109,6 +112,7 @@ console.log(orders)
              
             </div>
           </div>
+        </div>
         </div>
       ))}
     </>

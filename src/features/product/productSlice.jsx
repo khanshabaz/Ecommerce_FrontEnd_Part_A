@@ -37,7 +37,6 @@ export const fetchAllProductsByFilterAsync = createAsyncThunk(
 export const fetchProductByIdAsync = createAsyncThunk(
   "product/fetchProductById",
   async (id) => {
-    console.log(id);
     const response = await fetchProductById(id);
     return response.data;
   }
@@ -60,7 +59,6 @@ export const fetchAllBrandsAsync = createAsyncThunk(
 export const createProductAsync = createAsyncThunk(
   "product/createProduct",
   async (product) => {
-    console.log(product);
     const response = await createProduct(product);
     return response.data;
   }
@@ -80,13 +78,7 @@ export const productSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // .addCase(fetchAllProductsAsync.pending, (state) => {
-      //   state.status = 'loading';
-      // })
-      // .addCase(fetchAllProductsAsync.fulfilled, (state, action) => {
-      //   state.status = 'idle';
-      //   state.products = action.payload;
-      // })
+   
       .addCase(fetchAllProductsByFilterAsync.pending, (state) => {
         state.status = "loading";
       })

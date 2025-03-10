@@ -12,15 +12,12 @@ import { EyeIcon, PencilIcon } from "@heroicons/react/24/outline";
 
 export default function AdminOrder() {
   const orders = useSelector(selectOrders);
+  console.log(orders)
   const totalItems = useSelector(selectTotalOrders);
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
   const [editableOrderId, setEditableOrderId] = useState(-1);
-  useEffect(() => {
-    const pagination = { _page: page, _per_page: ITEMS_PER_PAGE }; //_page:2,_per_page:10
 
-    dispatch(fetchAllOrdersAsync({ pagination }));
-  }, [dispatch, page]);
 
 
   const handleEdit=(order)=>{
@@ -28,9 +25,6 @@ setEditableOrderId(order.id)
   }
 
 
-  const handleShow=()=>{
-   console.log("show")
-      }
 
   const handleUpdate = (e, order) => {
     const updateOrder={...order,status:e.target.value};
@@ -53,6 +47,13 @@ setEditableOrderId(order.id)
 
     }
   };
+
+
+
+  useEffect(() => {
+    const pagination = { _page: page, _per_page: ITEMS_PER_PAGE }; //_page:2,_per_page:10
+    dispatch(fetchAllOrdersAsync({ pagination }));
+  }, [dispatch, page]);
   return (
     <>
       <div className="overflow-x-auto">
@@ -72,7 +73,7 @@ setEditableOrderId(order.id)
                 </thead>
                 <tbody className="text-gray-600 text-sm font-light">
                   {orders.map((order) => (
-                    <tr className="border-b border-gray-200 hover:bg-gray-200 cursor-pointer">
+                    <tr  key={order.id} className="border-b border-gray-200 hover:bg-gray-200 cursor-pointer">
                       <td className="py-3 px-6 text-left whitespace-nowrap">
                         <div className="flex items-center">
                           <div className="mr-2">
@@ -81,17 +82,17 @@ setEditableOrderId(order.id)
                         </div>
                       </td>
                       <td className="py-3 px-6 text-left ">
-                        {order.items.map((item) => (
-                          <div className="flex items-center">
+                        {order.items.map((item,index) => (
+                          <div key={index} className="flex items-center">
                             <div className="mr-2">
                               <img
-                                src={item.thumbnail}
+                                src={item.product.thumbnail}
                                 className="w-6 h-6 rounded-full"
                               />
                             </div>
                             <span>
-                              {item.title}- #{item.quantity}-$
-                              {discountedPrice(item)}
+                              {item.product.title}- #{item.quantity}-$
+                              {discountedPrice(item.product)}
                             </span>
                           </div>
                         ))}
@@ -135,7 +136,7 @@ setEditableOrderId(order.id)
                       <td className="py-3 px-6 text-center">
                         <div className="flex items-center justify-center">
                           <div className="w-6 mr-4 tranform hover:text-purple-500 hover:scale-120">
-                            <EyeIcon className="w-8 h-8" onClick={(e)=>handleShow(order)}>
+                            <EyeIcon className="w-8 h-8" >
 
                             </EyeIcon>
                           </div>

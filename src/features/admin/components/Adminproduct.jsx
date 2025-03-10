@@ -67,7 +67,6 @@ export default function AdminProduct() {
   ];
 
   const handleFilter = (e, section, option) => {
-    console.log(e.target.checked);
     const newFilter = { ...filter };
     if (e.target.checked) {
       if (newFilter[section.id]) {

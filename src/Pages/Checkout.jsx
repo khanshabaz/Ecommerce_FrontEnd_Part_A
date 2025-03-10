@@ -22,6 +22,7 @@ export default function Checkout() {
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentMethod, setPaymentMethod] = useState("cash");
   const currentOrder = useSelector(selectCurrentOrder);
+  console.log(currentOrder)
   const {
     register,
     handleSubmit,
@@ -29,17 +30,18 @@ export default function Checkout() {
     reset,
   } = useForm();
 
-  const totalAmount = Math.round(
-    items.reduce((amount, item) => item.price * item.quantity + amount, 0)
-  );
+  const totalAmount =Math.round( items.reduce(
+    (amount, item) => item.product.price * item.quantity + amount,
+    0
+  ))
   const totalItems = items.reduce((total, item) => item.quantity + total, 0);
 
-  const handleQuantity = (e, item) => {
-    dispatch(updateCartAsync({ ...item, quantity: +e.target.value }));
-  };
-  const handleRemove = (e, id) => {
-    dispatch(deleteItemFromCartAsync(id));
-  };
+  const handleQuantity=(e,item)=>{
+    dispatch(updateCartAsync({id:item.id,quantity:+e.target.value}))
+  }
+  const handleRemove=(e,id)=>{
+    dispatch(deleteItemFromCartAsync(id))
+  }
 
   const handleAddress = (e) => {
     setSelectedAddress(userInfo.addresses[e.target.value]);
@@ -55,7 +57,7 @@ export default function Checkout() {
         items,
         totalAmount,
         totalItems,
-        user: userInfo,
+        user: userInfo.id,
         paymentMethod,
         selectedAddress,
         status: "pending",
@@ -359,8 +361,8 @@ export default function Checkout() {
                       <li key={item.id} className="flex py-6">
                         <div className="size-24 shrink-0 overflow-hidden rounded-md border border-gray-200">
                           <img
-                            alt={item.title}
-                            src={item.thumbnail}
+                            alt={item.product.title}
+                            src={item.product.thumbnail}
                             className="size-full object-cover"
                           />
                         </div>
@@ -369,12 +371,12 @@ export default function Checkout() {
                           <div>
                             <div className="flex justify-between text-base font-medium text-gray-900">
                               <h3>
-                                <a href={item.href}>{item.title}</a>
+                                <a href={item.product.href}>{item.product.title}</a>
                               </h3>
-                              <p className="ml-4">${item.price}</p>
+                              <p className="ml-4">${item.product.price}</p>
                             </div>
                             <p className="mt-1 text-sm text-gray-500">
-                              {item.brand}
+                              {item.product.brand}
                             </p>
                           </div>
                           <div className="flex flex-1 items-end justify-between text-sm">

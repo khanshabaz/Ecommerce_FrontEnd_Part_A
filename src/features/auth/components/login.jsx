@@ -11,13 +11,11 @@ export default function Login() {
   const dispatch = useDispatch();
   const user = useSelector(selectedLoggedInUser);
   const error = useSelector(selectedError);
-  console.log(error)
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-
   return (
     <>
       {user && <Navigate to="/" replace={true}></Navigate>}
